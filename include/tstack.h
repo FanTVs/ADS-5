@@ -4,24 +4,23 @@
 
 template<typename T, int size>
 class TStack {
-private:
+ private:
     T data[size];
     int top;
-public:
+
+ public:
     TStack() :top(0) {}
     void push(const T& item) {
         if (top <= size - 1) {
             data[top++] = item;
-        }
-        else {
+        } else {
             throw std::string("full");
         }
     }
     T pop() {
         if (top > 0) {
             return data[--top];
-        }
-        else {
+        } else {
             throw std::string("Empty");
         }
     }
@@ -31,8 +30,7 @@ public:
     T get() const {
         if (top > 0) {
             return data[top - 1];
-        }
-        else {
+        } else {
             throw std::string("Empty");
         }
     }
