@@ -75,7 +75,8 @@ std::string infx2pstfx(std::string inf) {
                             if (priority(c) > priority(stack1.get())) {
                                 stack1.push(c);
                             } else {
-                                while ((!stack1.isEmpty()) && (priority(c) <= priority(stack1.get()))) {
+                                while ((!stack1.isEmpty()) &&
+                                    (priority(c) <= priority(stack1.get()))) {
                                     post = post + " " + stack1.pop();
                                 }
                                 stack1.push(c);
@@ -95,7 +96,7 @@ std::string infx2pstfx(std::string inf) {
     }
 }
 
-int eval(std::string pref) {
+int eval(std::string post) {
     std::string str = "";
     TStack<int, 100> stack2;
     int flag = 0;
@@ -116,8 +117,7 @@ int eval(std::string pref) {
                         str = "";
                     }
                 }
-            }
-            else {
+            } else {
                 flag = 0;
             }
         }
